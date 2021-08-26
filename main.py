@@ -5,7 +5,7 @@ import binascii
 
 async def echo(websocket, path):
     async for message in websocket:
-        username = await 'user' + str(binascii.crc32(websocket.remote_address[0].encode('utf-8')))
+        username = 'user' + str(binascii.crc32(websocket.remote_address[0].encode('utf-8')))
         await websocket.send(username + ': ' + str(message))
 
 start_server = websockets.serve(echo, "0.0.0.0", os.environ.get("PORT", 17995))
