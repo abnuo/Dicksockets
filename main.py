@@ -8,7 +8,7 @@ connected = set()
 
 async def echo(websocket, path):
     # Register.
-    #username = 'Scatter ' + hashlib.md5(websocket.remote_address[0].encode('utf-8')).hexdigest()[:3]
+    #username = 'User ' + hashlib.md5(websocket.remote_address[0].encode('utf-8')).hexdigest()[:3]
     connected.add(websocket)
     try:
         async for message in websocket:
