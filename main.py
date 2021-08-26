@@ -7,7 +7,7 @@ connected = set()
 
 async def echo(websocket, path):
     # Register.
-    username = 'user' + str(crc16.crc16xmodem(websocket.remote_address[0].encode('utf-8')))
+    username = 'user' + str(crc16.crc16xmodem(websocket.local_address[0].encode('utf-8')))
     connected.add(websocket)
     try:
         async for message in websocket:
