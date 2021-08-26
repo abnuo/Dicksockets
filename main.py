@@ -3,6 +3,8 @@ import asyncio
 import websockets
 import crc16
 
+connected = set()
+
 async def echo(websocket, path):
     # Register.
     username = 'user' + str(crc16.crc16xmodem(websocket.remote_address[0].encode('utf-8')))
